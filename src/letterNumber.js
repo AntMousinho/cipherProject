@@ -1,9 +1,8 @@
-const invertCipher = require('./invertCipher');
-const readCipher = require('./readCipher');
+const Cipher = require('./cipher');
 
-class LetterNumber {
+class LetterNumber extends Cipher{
     constructor(characterSet) {
-        this._cipher = readCipher(characterSet);
+        super(characterSet);
     }
     
     encrypt(string, offset) {
@@ -14,7 +13,7 @@ class LetterNumber {
     }
 
     decrypt(string, offset) {
-        let invertedCipher = invertCipher(this._cipher);
+        let invertedCipher = super.invertCipher(this._cipher);
         return this.chunk(string.split(''), 2).map(pair => {
             let cipherPair = parseInt(pair.join(''));
             while(cipherPair < offset) {

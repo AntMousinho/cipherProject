@@ -1,5 +1,5 @@
-# Challenge 10 README
-Challenge10 is a JavaScript library used to encode and decode .txt files
+# CipherProject README
+cipherProject is a JavaScript library used to encode and decode .txt files.
 
 
 # Directory structure
