@@ -12,12 +12,12 @@ cipherProject is a JavaScript library used to encode and decode .txt files.
 # How to install the program
 - Make sure you have Node.Js installed
 - Git clone the repository to your device from:
-git@github.com:AntMousinho/challenge10.git
+`https://github.com/AntMousinho/cipherProject.git`
 
 
 # How to run code
-- Navigate to the project directory through the command line (challenge10)
-- The command will take 3 or 4 arguments outlined below
+- Navigate to the project directory through the command line (cipherProject).
+- The command will take 3 or 4 arguments outlined below.
 - input :
 ```
 $ node src/main [cipher] [method] [file] [key]
@@ -34,7 +34,17 @@ $ node src/main [cipher] [method] [file] [key]
 -`key` - Optional. Used for letterNumber ciphers
 
 - This will create a new file for with the encrypted/decrypted output and store it in the `output_files` directory
-- See example outputs for further details
+
+- The ciphers currently work off two character sets, the `letterNumberCipher` uses `character_set.txt` while the `letterLetterCipher (cipher.js)` uses `character_set2.txt`
+
+- Using a `letterNumber` cipher input `ln` requires a `key`. This offsets the value returned value of the cipher by the value of the `key`
+    - E.g. with no `key` - `"d" = 6`
+    - With `key = 3` - `"d" = 9`
+
+- The `key` can be any positive integer, if `key > 99` the cipher roll over to `0` and keep offsetting
+
+- See expected outputs for further details
+
 
 
 # Expected outputs
@@ -46,6 +56,7 @@ $ node src/main ln enc text_files/testLNEnc.txt 31045
 ```
 
 expected output: A new text file called `testLNEnc.txt.enc` in `output_files` directory containing:
+
  `97747470597481647759796764776413`
 
 
@@ -58,6 +69,7 @@ $ node src/main ln dec text_files/testLNDec.txt.enc 4771
 ```
 
 expected output: A new text file called `testLNDec.txt` in `output_files` directory containing:
+
 `Hi, Ed! I think someone's on to this cipher!`
 
 
@@ -70,6 +82,7 @@ $ node src/main ll enc text_files/testLLEnc.txt
 ```
 
 expected output: A new text  file called `testLLEnc.txt.enc` in `output_files` directory containing:
+
 `B!!ym!9DAm2§DAD `
 
 
@@ -82,6 +95,7 @@ $ node src/main ll dec text_files/testLLDec.txt.enc
 ```
 
 expected output: A new text file called `testLLDec.txt` in `output_files` directory containing:
+
 `Quick! We need a distraction! Once you read this message, find the community channel named "random" on Discord, and share a random fact regarding any insect - but it has to be about insects! Fingers crossed this will distract and slow down the people cracking these ciphers!`
 
 

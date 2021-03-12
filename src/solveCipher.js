@@ -1,6 +1,6 @@
 const fs = require('fs');
-const LetterNumber = require('./letterNumber');
-const Cipher = require('./cipher');
+const LetterNumberCipher = require('./letterNumberCipher');
+const LetterLetterCipher = require('./cipher');
 
 const solveCipher = (cipherFile, method, file, key = null) => {
     const fileString = fs.readFileSync(file, 'utf8');
@@ -34,9 +34,9 @@ const sliceFileName = file => {
 
 const selectCipher = (cipherFile) => {
     if(cipherFile === 'ln') {
-        return new LetterNumber('src/character_set.txt');
+        return new LetterNumberCipher('src/character_set.txt');
     } else {
-        return new Cipher('src/character_set2.txt');
+        return new LetterLetterCipher('src/character_set2.txt');
     }
 }
 

@@ -1,6 +1,6 @@
 const Cipher = require('./cipher');
 
-class LetterNumber extends Cipher{
+class LetterNumberCipher extends Cipher{
     constructor(characterSet) {
         super(characterSet);
     }
@@ -33,4 +33,4 @@ class LetterNumber extends Cipher{
     }
 }
 
-module.exports = LetterNumber;
+module.exports = LetterNumberCipher;
