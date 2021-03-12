@@ -1,6 +1,6 @@
 {
   "name": "cipherworld-antony-mse-2103-a",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "cipherProject is a JavaScript library used to encode and decode .txt files.",
   "main": "src/main.js",
   "scripts": {
