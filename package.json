@@ -1,0 +1,23 @@
+{
+  "name": "cipherworld-antony-mse-2103-a",
+  "version": "1.0.0",
+  "description": "cipherProject is a JavaScript library used to encode and decode .txt files.",
+  "main": "src/main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords" : [
+    "mse-2103", 
+    "cipherworld"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AntMousinho/cipherworld-antony-mse-2103-a.git"
+  },
+  "author": "Antony Mousinho <antony.mousinho@hotmail.co.uk>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AntMousinho/cipherworld-antony-mse-2103-a/issues"
+  },
+  "homepage": "https://github.com/AntMousinho/cipherworld-antony-mse-2103-a#readme"
+}

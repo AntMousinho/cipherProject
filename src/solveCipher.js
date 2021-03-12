@@ -39,9 +39,9 @@ const sliceFileName = file => {
 
 const selectCipher = (cipherFile) => {
     if(cipherFile === 'ln') {
-        return new LetterNumberCipher('src/character_set.txt');
+        return new LetterNumberCipher('node_modules/cipherworld-antony-mse-2103-a/src/character_set.txt');
     } else {
-        return new LetterLetterCipher('src/character_set2.txt');
+        return new LetterLetterCipher('node_modules/cipherworld-antony-mse-2103-a/src/character_set2.txt');
     }
 }
 
