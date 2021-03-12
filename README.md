@@ -1,5 +1,5 @@
-# CipherProject README
-cipherProject is a JavaScript library used to encode and decode .txt files.
+# cipherworld-antony-mse-2103-a README
+cipherworld-antony-mse-2103-a is a JavaScript library used to encode and decode .txt files.
 
 
 # Directory structure

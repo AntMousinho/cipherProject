@@ -2,6 +2,7 @@ const fs = require('fs');
 const LetterNumberCipher = require('./letterNumberCipher');
 const LetterLetterCipher = require('./cipher');
 
+
 const solveCipher = (cipherFile, method, file, key = null) => {
     const fileString = fs.readFileSync(file, 'utf8');
 
@@ -10,10 +11,6 @@ const solveCipher = (cipherFile, method, file, key = null) => {
     const output = executeMethod(method, cipherType, fileString, key);
     
     let outputFileName = sliceFileName(file);
-
-    // fs.writeFile(`output_files/${outputFileName}`, output, (err) => {
-    //     if(err) throw err;
-    // });
 
     fs.writeFile(`${outputFileName}`, output, (err) => {
         if(err) throw err;
@@ -29,8 +26,6 @@ const sliceFileName = file => {
     } else {
         tempFileName = file.slice(0, file.length - 4);
     }
-    // let fileArray = tempFileName.split('/');
-    // let newFileName = fileArray[fileArray.length - 1];
     let newFileName = tempFileName;
     return newFileName;
 }
@@ -39,9 +34,9 @@ const sliceFileName = file => {
 
 const selectCipher = (cipherFile) => {
     if(cipherFile === 'ln') {
-        return new LetterNumberCipher('node_modules/cipherworld-antony-mse-2103-a/src/character_set.txt');
+        return new LetterNumberCipher(`${__dirname}/character_set.txt`);
     } else {
-        return new LetterLetterCipher('node_modules/cipherworld-antony-mse-2103-a/src/character_set2.txt');
+        return new LetterLetterCipher(`${__dirname}/character_set2.txt`);
     }
 }
 
