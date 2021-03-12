@@ -11,7 +11,11 @@ const solveCipher = (cipherFile, method, file, key = null) => {
     
     let outputFileName = sliceFileName(file);
 
-    fs.writeFile(`output_files/${outputFileName}`, output, (err) => {
+    // fs.writeFile(`output_files/${outputFileName}`, output, (err) => {
+    //     if(err) throw err;
+    // });
+
+    fs.writeFile(`${outputFileName}`, output, (err) => {
         if(err) throw err;
     });
 }
@@ -25,8 +29,9 @@ const sliceFileName = file => {
     } else {
         tempFileName = file.slice(0, file.length - 4);
     }
-    let fileArray = tempFileName.split('/');
-    let newFileName = fileArray[fileArray.length - 1];
+    // let fileArray = tempFileName.split('/');
+    // let newFileName = fileArray[fileArray.length - 1];
+    let newFileName = tempFileName;
     return newFileName;
 }
 
