@@ -40,7 +40,7 @@ $ cipherWorld [character set] [cipher] [method] [file] <key>
     - E.g. with no `key` - `"d" = 6`
     - With `key = 3` - `"d" = 9`
 
-- The `key` can be any positive integer, if `key > 99` the cipher roll over to `0` and keep offsetting
+- The `key` can be any integer >= 0, if `key > 99` the cipher rolls over to `0` and keeps offsetting
 
 - See expected outputs for further details
 
