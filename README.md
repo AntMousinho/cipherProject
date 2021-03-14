@@ -7,21 +7,30 @@ cipherworld-antony-mse-2103-a is a JavaScript library used to encode and decode 
 $ npm install cipherworld-antony-mse-2103-a
 ```
 
+# Directory information
+- `test_files` - Directory containing 4 test files to be encrypted or decrypted
+- `characterSets` - Directory containing the character sets that will be used for each cipher
+    - `character_set.txt` is used for the `letterNumber` cipher
+    - `character_set2.txt` is used for the `letterLetter` cipher
+    - More character sets can be added in future
+
 # How to run code
 - Navigate to the project directory through the command line.
 - The command will take 3 or 4 arguments outlined below.
 - input :
 ```
-$ cipherWorld [cipher] [method] [file] [key]
+$ cipherWorld [character set] [cipher] [method] [file] <key>
 ```
 
--`cipher` - either `ll` (letterLetter) or `ln` (letterNumber) cipher, depending on what you are trying to encrypt/decrypt
+- `character set` - the file containing the necessary character set for your chosen cipher. Current possible inputs are `character_set.txt` and `character_set2.txt`
 
--`method` - either `enc` (encrypt) or `dec` (decrypt)
+- `cipher` - either `ll` (letterLetter) or `ln` (letterNumber) cipher, depending on what you are trying to encrypt/decrypt
 
--`file` - the filepath for the .txt file that needs encypting/decrypting
+- `method` - either `enc` (encrypt) or `dec` (decrypt)
 
--`key` - Optional. Used for letterNumber ciphers
+- `file` - the filepath for the .txt file that needs encypting/decrypting
+
+- `key` - Optional. Used for letterNumber ciphers
 
 - This will create a new file for with the encrypted/decrypted output and store it in the same directory as the original file.
 
@@ -46,13 +55,16 @@ Copy/move these files to your working directory to test package.
 
 
 # Expected outputs
-- The code below will execute if the .txt files have been moved into your working directory, otherwise use their absolute/relative file paths
+- The code below will execute if the .txt files have been moved into your working directory
+- To test the examples below, move/copy the files from `node_modules/cipherworld-antony-mse-2103-a/text_files` into your current working directory
 
 * Example 1: Encrypt `testLNEnc.txt` with key `31045` - LetterNumber Cipher
 input code: 
 ```
-$ cipherWorld ln enc testLNEnc.txt 31045
+$ cipherWorld character_set.txt ln enc texttestLNEnc.txt 31045
 ```
+
+
 
 expected output: A new text file called `testLNEnc.txt.enc` containing:
 
@@ -143,3 +155,8 @@ expected output: A new text file called `testLLDec.txt` containing:
     - Found that i needed to change the input to `${__dirname}/character_set.txt` so that it would look for character set files from the same directory as `solveCipher.js`
 
 - Now able to execute `cipherWorld` from the command line to encrypt and decrypt text files
+
+- Extensive research into `yargs` to configure the `cipherWorld` command with `positionals`, `options`, `choices`, and `examples`
+    - Still more work can be done to improve this
+    - Lots of new stuff with `yargs` trying to get my head around how things work and what each function does
+    - Tried to keep it basic for now

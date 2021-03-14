@@ -3,10 +3,10 @@ const LetterNumberCipher = require('./letterNumberCipher');
 const LetterLetterCipher = require('./cipher');
 
 
-const solveCipher = (cipherFile, method, file, key = null) => {
+const solveCipher = (whatCipher, method, file, characterSet, key = null) => {
     const fileString = fs.readFileSync(file, 'utf8');
 
-    const cipherType = selectCipher(cipherFile);
+    const cipherType = selectCipher(whatCipher, characterSet);
     
     const output = executeMethod(method, cipherType, fileString, key);
     
@@ -32,11 +32,11 @@ const sliceFileName = file => {
 
 
 
-const selectCipher = (cipherFile) => {
+const selectCipher = (cipherFile, characterSet) => {
     if(cipherFile === 'ln') {
-        return new LetterNumberCipher(`${__dirname}/character_set.txt`);
+        return new LetterNumberCipher(__dirname + `/../characterSets/${characterSet}`);
     } else {
-        return new LetterLetterCipher(`${__dirname}/character_set2.txt`);
+        return new LetterLetterCipher(__dirname + `/../characterSets/${characterSet}`);
     }
 }
 
