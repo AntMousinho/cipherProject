@@ -1,10 +1,12 @@
 const fs = require('fs');
 const LetterNumberCipher = require('./letterNumberCipher');
 const LetterLetterCipher = require('./cipher');
+const path = require('path');
 
 
 const solveCipher = (whatCipher, method, file, characterSet, key = null) => {
-    const fileString = fs.readFileSync(file, 'utf8');
+    // const fileString = fs.readFileSync(file, 'utf8');
+    const fileString = fs.readFileSync(path.join(process.cwd(), file), 'utf8');
 
     const cipherType = selectCipher(whatCipher, characterSet);
     

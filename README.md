@@ -1,23 +1,32 @@
 # cipherworld-antony-mse-2103-a README
 cipherworld-antony-mse-2103-a is a JavaScript library used to encode and decode .txt files.
 
-# How to install the program
-- With the command line, navigate to the directory containing the text files that you want to encrypt or decrypt. Enter:
+<p>&nbsp;</p>
+
+## How to install the program
+With the command line, navigate to the directory containing the text files that you want to encrypt or decrypt. Enter:
 ```
 $ npm install cipherworld-antony-mse-2103-a
 ```
 
-# Directory information
+<p>&nbsp;</p>
+
+## Directory information
 - `test_files` - Directory containing 4 test files to be encrypted or decrypted
 - `characterSets` - Directory containing the character sets that will be used for each cipher
     - `character_set.txt` is used for the `letterNumber` cipher
     - `character_set2.txt` is used for the `letterLetter` cipher
     - More character sets can be added in future
 
-# How to run code
-- Navigate to the project directory through the command line.
-- The command will take 3 or 4 arguments outlined below.
-- input :
+<p>&nbsp;</p>
+
+## How to run code
+Navigate to the project directory through the command line.
+
+The command will take 3 or 4 arguments outlined below.
+
+
+Input :
 ```
 $ cipherWorld [character set] [cipher] [method] [file] <key>
 ```
@@ -44,75 +53,92 @@ $ cipherWorld [character set] [cipher] [method] [file] <key>
 
 - See expected outputs for further details
 
+<p>&nbsp;</p>
 
-# Example Files
-- this module comes with 4 example files that are located in:
+
+## Example Files
+This module comes with 4 example files that are located in:
 ```
 [project_directory]/node_modules/cipherworld-antony-mse-2103-a/text_files
 ```
 
-Copy/move these files to your working directory to test package.
+For ease of use, copy/move these files to your working directory to test package.
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
 
 
-# Expected outputs
-- The code below will execute if the .txt files have been moved into your working directory
-- To test the examples below, move/copy the files from `node_modules/cipherworld-antony-mse-2103-a/text_files` into your current working directory
+## Expected outputs
+To easily test the examples below, move/copy the files from `node_modules/cipherworld-antony-mse-2103-a/text_files` into your current working directory
 
-* Example 1: Encrypt `testLNEnc.txt` with key `31045` - LetterNumber Cipher
+<p>&nbsp;</p>
+
+### Example 1: 
+Encrypt `testLNEnc.txt` with key `31045` - LetterNumber Cipher
 input code: 
+ (Using the test files without moving from their original directory: )
 ```
-$ cipherWorld character_set.txt ln enc texttestLNEnc.txt 31045
+$cipherWorld character_set.txt ln enc node_modules/cipherworld-antony-mse-2103-a/test_files/testLNEnc.txt 31045
 ```
 
+or if moving the `testLNEnc.txt` file to the current working director
 
+```
+$ cipherWorld character_set.txt ln enc testLNEnc.txt 31045
+```
 
-expected output: A new text file called `testLNEnc.txt.enc` containing:
+Expected output: A new text file called `testLNEnc.txt.enc` containing:
 
  `97747470597481647759796764776413`
 
+ <p>&nbsp;</p>
+ <p>&nbsp;</p>
 
-
-
-* Example 2: Decrypt `testLNDec.txt.enc` with key 4771 - LetterNumber Cipher
+### Example 2: 
+Decrypt `testLNDec.txt.enc` with key 4771 - LetterNumber Cipher
 input code:
 ```
 $ cipherWorld ln dec testLNDec.txt.enc 4771
 ```
 
-expected output: A new text file called `testLNDec.txt` containing:
+Expected output: A new text file called `testLNDec.txt` containing:
 
 `Hi, Ed! I think someone's on to this cipher!`
 
+<p>&nbsp;</p>
+<p>&nbsp;</p>
 
 
-
-* Example 3: Encrypt `testLLEnc.txt` - LetterLetter Cipher
+### Example 3: 
+Encrypt `testLLEnc.txt` - LetterLetter Cipher
 input code: 
 ```
 $ cipherWorld ll testLLEnc.txt
 ```
 
-expected output: A new text  file called `testLLEnc.txt.enc` containing:
+Expected output: A new text  file called `testLLEnc.txt.enc` containing:
 
 `B!!ym!9DAm2§DAD `
 
 
+<p>&nbsp;</p>
+<p>&nbsp;</p>
 
-
-* Example 4: Decrypt `testLLDec.txt.enc` - LetterLetter Cipher
+### Example 4: 
+Decrypt `testLLDec.txt.enc` - LetterLetter Cipher
 input code: 
 ```
 $ cipherWorld ll dec testLLDec.txt.enc
 ```
 
-expected output: A new text file called `testLLDec.txt` containing:
+Expected output: A new text file called `testLLDec.txt` containing:
 
 `Quick! We need a distraction! Once you read this message, find the community channel named "random" on Discord, and share a random fact regarding any insect - but it has to be about insects! Fingers crossed this will distract and slow down the people cracking these ciphers!`
 
 
+<p>&nbsp;</p>
 
-
-# Approach to getting to this point
+## Approach to getting to this point
 - As the letterLetter Cipher and letterNumber cipher had previously been made, I started by recreating those classes.
     - Split them into their own files and reworked them to make them more streamline, easier to read and efficient
     - `invertCipher.js` and `readCipher.js` were two methods that I extracted into their own files. They are used in both types of ciphers
