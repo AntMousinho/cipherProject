@@ -28,8 +28,9 @@ The command will take 3 or 4 arguments outlined below.
 
 Input :
 ```
-$ cipherWorld [character set] [cipher] [method] [file] <key>
+$ npx cipherWorld [character set] [cipher] [method] [file] <key>
 ```
+- `npx` - node package execute
 
 - `character set` - the file containing the necessary character set for your chosen cipher. Current possible inputs are `character_set.txt` and `character_set2.txt`
 
@@ -78,7 +79,7 @@ Encrypt `testLNEnc.txt` with key `31045` - LetterNumber Cipher
 input code: 
  (Using the test files without moving from their original directory: )
 ```
-$cipherWorld character_set.txt ln enc node_modules/cipherworld-antony-mse-2103-a/test_files/testLNEnc.txt 31045
+$ npx cipherWorld character_set.txt ln enc node_modules/cipherworld-antony-mse-2103-a/test_files/testLNEnc.txt 31045
 ```
 
 or if moving the `testLNEnc.txt` file to the current working director
@@ -98,7 +99,7 @@ Expected output: A new text file called `testLNEnc.txt.enc` containing:
 Decrypt `testLNDec.txt.enc` with key 4771 - LetterNumber Cipher
 input code:
 ```
-$ cipherWorld ln dec testLNDec.txt.enc 4771
+$ npx cipherWorld ln dec testLNDec.txt.enc 4771
 ```
 
 Expected output: A new text file called `testLNDec.txt` containing:
@@ -113,7 +114,7 @@ Expected output: A new text file called `testLNDec.txt` containing:
 Encrypt `testLLEnc.txt` - LetterLetter Cipher
 input code: 
 ```
-$ cipherWorld ll testLLEnc.txt
+$ npx cipherWorld ll testLLEnc.txt
 ```
 
 Expected output: A new text  file called `testLLEnc.txt.enc` containing:
@@ -128,7 +129,7 @@ Expected output: A new text  file called `testLLEnc.txt.enc` containing:
 Decrypt `testLLDec.txt.enc` - LetterLetter Cipher
 input code: 
 ```
-$ cipherWorld ll dec testLLDec.txt.enc
+$ npx cipherWorld ll dec testLLDec.txt.enc
 ```
 
 Expected output: A new text file called `testLLDec.txt` containing:
