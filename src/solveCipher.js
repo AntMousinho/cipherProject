@@ -35,7 +35,7 @@ const sliceFileName = file => {
 
 
 const selectCipher = (cipherFile, characterSet) => {
-    if(cipherFile === 'ln') {
+    if(cipherFile === 'ln' || cipherFile === 'letterNumber') {
         return new LetterNumberCipher(__dirname + `/../characterSets/${characterSet}`);
     } else {
         return new LetterLetterCipher(__dirname + `/../characterSets/${characterSet}`);
@@ -46,7 +46,7 @@ const selectCipher = (cipherFile, characterSet) => {
 
 const executeMethod = (method, cipherType, fileString, key) => {
     let output = ''
-    if(method === 'enc') {
+    if(method === 'enc' || method === 'encrypt') {
         output = cipherType.encrypt(fileString, parseInt(key));
     } else {
         output = cipherType.decrypt(fileString, parseInt(key));

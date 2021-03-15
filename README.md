@@ -85,7 +85,7 @@ $ npx cipherWorld character_set.txt ln enc node_modules/cipherworld-antony-mse-2
 or if moving the `testLNEnc.txt` file to the current working director
 
 ```
-$ cipherWorld character_set.txt ln enc testLNEnc.txt 31045
+$ npx cipherWorld character_set.txt ln enc testLNEnc.txt 31045
 ```
 
 Expected output: A new text file called `testLNEnc.txt.enc` containing:

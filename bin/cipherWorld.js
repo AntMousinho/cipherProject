@@ -9,11 +9,11 @@ const argv = require('yargs')(process.argv.slice(2))
         }).positional('cipher', {
             describe: 'Select which cipher to use (e.g. letterLetter or LetterNumber)',
             type: 'string',
-            choices: ['letterNumber', 'ln', 'letterLetter', 'll']
+            choices: ['ln', 'letterNumber', 'll', 'letterLetter']
         }).positional('method', {
             describe: 'Which cipher method to use (e.g. encrypt or decrypt)',
             type: 'string',
-            choices: ['encrypt', 'enc', 'decrypt', 'dec']
+            choices: ['enc', 'encrypt', 'dec', 'decrypt']
         }).positional('inputFile', {
             describe: 'Text file you want to be encrypted or decrypted',
             type: 'string'
