@@ -32,11 +32,11 @@ $ npx cipherWorld [character set] [cipher] [method] [file] <key>
 ```
 - `npx` - node package execute
 
-- `character set` - the file containing the necessary character set for your chosen cipher. Current possible inputs are `character_set.txt` and `character_set2.txt`
+- `character set` - the file containing the necessary character set for your chosen cipher. Current possible inputs are `character_set.txt` (for letter number ciphers) and `character_set2.txt` (for letter letter ciphers)
 
-- `cipher` - either `ll` (letterLetter) or `ln` (letterNumber) cipher, depending on what you are trying to encrypt/decrypt
+- `cipher` - Use `letterLetter` or `ll` if you want to use the LetterLetter cipher. Use `letterNumber` or `ln` if you want to use the LetterNumber cipher.
 
-- `method` - either `enc` (encrypt) or `dec` (decrypt)
+- `method` - Use `encrypt` or `enc` to encrypt a file. Use `decrypt` or `dec` to decrypt a file.
 
 - `file` - the filepath for the .txt file that needs encypting/decrypting
 
@@ -99,7 +99,7 @@ Expected output: A new text file called `testLNEnc.txt.enc` containing:
 Decrypt `testLNDec.txt.enc` with key 4771 - LetterNumber Cipher
 input code:
 ```
-$ npx cipherWorld ln dec testLNDec.txt.enc 4771
+$ npx cipherWorld letterNumber decrypt testLNDec.txt.enc 4771
 ```
 
 Expected output: A new text file called `testLNDec.txt` containing:
@@ -114,7 +114,7 @@ Expected output: A new text file called `testLNDec.txt` containing:
 Encrypt `testLLEnc.txt` - LetterLetter Cipher
 input code: 
 ```
-$ npx cipherWorld ll testLLEnc.txt
+$ npx cipherWorld ll encrypt testLLEnc.txt
 ```
 
 Expected output: A new text  file called `testLLEnc.txt.enc` containing:
