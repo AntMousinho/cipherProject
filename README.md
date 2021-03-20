@@ -1,93 +1,145 @@
-# Challenge 10 README
-Challenge10 is a JavaScript library used to encode and decode .txt files
+# cipherworld-antony-mse-2103-a README
+cipherworld-antony-mse-2103-a is a JavaScript library used to encode and decode .txt files.
 
+<p>&nbsp;</p>
 
-# Directory structure
-- The directory is sorted into three directories: src, text_files, and output_files.
-    - src - where the source code is stored to run the programme
-    - text_files - 4 experiment text files that are to be encrypted or decrypted (the testing zone)
-    - output_files - where the newly created encrypted or decrypted .txt files are located
-
-
-# How to install the program
-- Make sure you have Node.Js installed
-- Git clone the repository to your device from:
-git@github.com:AntMousinho/challenge10.git
-
-
-# How to run code
-- Navigate to the project directory through the command line (challenge10)
-- The command will take 3 or 4 arguments outlined below
-- input :
+## How to install the program
+With the command line, navigate to the directory containing the text files that you want to encrypt or decrypt. Enter:
 ```
-$ node src/main [cipher] [method] [file] [key]
+$ npm install cipherworld-antony-mse-2103-a
 ```
 
--`src/main` will remain constant when encrypting/decrypting files. The source file that executes the program
+<p>&nbsp;</p>
 
--`cipher` - either `ll` (letterLetter) or `ln` (letterNumber) cipher, depending on what you are trying to encrypt/decrypt
+## Directory information
+- `test_files` - Directory containing 4 test files to be encrypted or decrypted
+- `characterSets` - Directory containing the character sets that will be used for each cipher
+    - `character_set.txt` is used for the `letterNumber` cipher
+    - `character_set2.txt` is used for the `letterLetter` cipher
+    - More character sets can be added in future
 
--`method` - either `enc` (encrypt) or `dec` (decrypt)
+<p>&nbsp;</p>
 
--`file` - the filepath for the .txt file that needs encypting/decrypting
+## How to run code
+Navigate to the project directory through the command line.
 
--`key` - Optional. Used for letterNumber ciphers
-
-- This will create a new file for with the encrypted/decrypted output and store it in the `output_files` directory
-- See example outputs for further details
+The command will take 3 or 4 arguments outlined below.
 
 
-# Expected outputs
+Input :
+```
+$ npx cipherWorld [character set] [cipher] [method] [file] <key>
+```
+- `npx` - node package execute
 
-* Example 1: Encrypt `testLNEnc.txt` with key `31045` - LetterNumber Cipher
+- `character set` - the file containing the necessary character set for your chosen cipher. Current possible inputs are `character_set.txt` (for letter number ciphers) and `character_set2.txt` (for letter letter ciphers)
+
+- `cipher` - Use `letterLetter` or `ll` if you want to use the LetterLetter cipher. Use `letterNumber` or `ln` if you want to use the LetterNumber cipher.
+
+- `method` - Use `encrypt` or `enc` to encrypt a file. Use `decrypt` or `dec` to decrypt a file.
+
+- `file` - the filepath for the .txt file that needs encypting/decrypting
+
+- `key` - Optional. Used for letterNumber ciphers
+
+- This will create a new file for with the encrypted/decrypted output and store it in the same directory as the original file.
+
+- The ciphers currently work off two character sets, the `letterNumberCipher` uses `character_set.txt` while the `letterLetterCipher (cipher.js)` uses `character_set2.txt`
+
+- Using a `letterNumber` cipher input `ln` requires a `key`. This offsets the value returned value of the cipher by the value of the `key`
+    - E.g. with no `key` - `"d" = 6`
+    - With `key = 3` - `"d" = 9`
+
+- The `key` can be any integer >= 0, if `key > 99` the cipher rolls over to `0` and keeps offsetting
+
+- See expected outputs for further details
+
+<p>&nbsp;</p>
+
+
+## Example Files
+This module comes with 4 example files that are located in:
+```
+[project_directory]/node_modules/cipherworld-antony-mse-2103-a/text_files
+```
+
+For ease of use, copy/move these files to your working directory to test package.
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+## Expected outputs
+To easily test the examples below, move/copy the files from `node_modules/cipherworld-antony-mse-2103-a/text_files` into your current working directory
+
+<p>&nbsp;</p>
+
+### Example 1: 
+Encrypt `testLNEnc.txt` with key `31045` - LetterNumber Cipher
 input code: 
+ (Using the test files without moving from their original directory: )
 ```
-$ node src/main ln enc text_files/testLNEnc.txt 31045
+$ npx cipherWorld character_set.txt ln enc node_modules/cipherworld-antony-mse-2103-a/test_files/testLNEnc.txt 31045
 ```
 
-expected output: A new text file called `testLNEnc.txt.enc` in `output_files` directory containing:
+or if moving the `testLNEnc.txt` file to the current working director
+
+```
+$ npx cipherWorld character_set.txt ln enc testLNEnc.txt 31045
+```
+
+Expected output: A new text file called `testLNEnc.txt.enc` containing:
+
  `97747470597481647759796764776413`
 
+ <p>&nbsp;</p>
+ <p>&nbsp;</p>
 
-
-
-* Example 2: Decrypt `testLNDec.txt.enc` with key 4771 - LetterNumber Cipher
+### Example 2: 
+Decrypt `testLNDec.txt.enc` with key 4771 - LetterNumber Cipher
 input code:
 ```
-$ node src/main ln dec text_files/testLNDec.txt.enc 4771
+$ npx cipherWorld letterNumber decrypt testLNDec.txt.enc 4771
 ```
 
-expected output: A new text file called `testLNDec.txt` in `output_files` directory containing:
+Expected output: A new text file called `testLNDec.txt` containing:
+
 `Hi, Ed! I think someone's on to this cipher!`
 
+<p>&nbsp;</p>
+<p>&nbsp;</p>
 
 
-
-* Example 3: Encrypt `testLLEnc.txt` - LetterLetter Cipher
+### Example 3: 
+Encrypt `testLLEnc.txt` - LetterLetter Cipher
 input code: 
 ```
-$ node src/main ll enc text_files/testLLEnc.txt
+$ npx cipherWorld ll encrypt testLLEnc.txt
 ```
 
-expected output: A new text  file called `testLLEnc.txt.enc` in `output_files` directory containing:
+Expected output: A new text  file called `testLLEnc.txt.enc` containing:
+
 `B!!ym!9DAm2§DAD `
 
 
+<p>&nbsp;</p>
+<p>&nbsp;</p>
 
-
-* Example 4: Decrypt `testLLDec.txt.enc` - LetterLetter Cipher
+### Example 4: 
+Decrypt `testLLDec.txt.enc` - LetterLetter Cipher
 input code: 
 ```
-$ node src/main ll dec text_files/testLLDec.txt.enc
+$ npx cipherWorld ll dec testLLDec.txt.enc
 ```
 
-expected output: A new text file called `testLLDec.txt` in `output_files` directory containing:
+Expected output: A new text file called `testLLDec.txt` containing:
+
 `Quick! We need a distraction! Once you read this message, find the community channel named "random" on Discord, and share a random fact regarding any insect - but it has to be about insects! Fingers crossed this will distract and slow down the people cracking these ciphers!`
 
 
+<p>&nbsp;</p>
 
-
-# Approach to getting to this point
+## Approach to getting to this point
 - As the letterLetter Cipher and letterNumber cipher had previously been made, I started by recreating those classes.
     - Split them into their own files and reworked them to make them more streamline, easier to read and efficient
     - `invertCipher.js` and `readCipher.js` were two methods that I extracted into their own files. They are used in both types of ciphers
@@ -111,3 +163,27 @@ expected output: A new text file called `testLLDec.txt` in `output_files` direct
     return new LetterNumber('src/character_set.txt')
     ```
     -This file source will work for this directory, but will it cause problems if the directory is moved/ when the repository is cloned to a different device.
+
+- Next challenge was to turn the program into a npm package
+    - Started by researching how to create a package from the npm documentation
+    - Found a couple of informative youtube videos (https://www.youtube.com/watch?v=N55jHr9qzpg&ab_channel=AndrewMead)
+
+- Created the `package.json` file and used `npm link` to test the code by using `require()` in another directory
+    - Had to rework some of the file paths for the `.readFile()` of `character_set.txt` and `character_set2.txt` within `solveCipher.js` so that the code would work when installed in another directory.
+    - This ended up only being a temporary solution, as the file path now ran through `node_modules` (more explained later)
+
+- Was able to get the code working in a different directory but was not calling `cipherWorld` directly through the command line
+
+- After more research, configured the `bin` key in `package.json` and created a `bin` directory.
+    - Set up the `cipherWorld.js` file to run in the node environment, store command line input and execute `solveCipher`
+
+- Final block was with the file paths found in `solveCipher.js` when creating a new `LetterLetterCipher` or `LetterNumberCipher` class.
+    -The file path was a relative string to `character_set.txt` but it would not work when the node package was installed in a different directory
+    - Found that i needed to change the input to `${__dirname}/character_set.txt` so that it would look for character set files from the same directory as `solveCipher.js`
+
+- Now able to execute `cipherWorld` from the command line to encrypt and decrypt text files
+
+- Extensive research into `yargs` to configure the `cipherWorld` command with `positionals`, `options`, `choices`, and `examples`
+    - Still more work can be done to improve this
+    - Lots of new stuff with `yargs` trying to get my head around how things work and what each function does
+    - Tried to keep it basic for now

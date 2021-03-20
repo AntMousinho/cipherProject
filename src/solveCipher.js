@@ -1,17 +1,20 @@
 const fs = require('fs');
-const LetterNumber = require('./letterNumber');
-const LetterLetter = require('./letterLetter');
+const LetterNumberCipher = require('./letterNumberCipher');
+const LetterLetterCipher = require('./cipher');
+const path = require('path');
 
-const solveCipher = (cipherFile, method, file, key = null) => {
-    const fileString = fs.readFileSync(file, 'utf8');
 
-    const cipherType = selectCipher(cipherFile);
+const solveCipher = (whatCipher, method, file, characterSet, key = null) => {
+    // const fileString = fs.readFileSync(file, 'utf8');
+    const fileString = fs.readFileSync(path.join(process.cwd(), file), 'utf8');
+
+    const cipherType = selectCipher(whatCipher, characterSet);
     
     const output = executeMethod(method, cipherType, fileString, key);
     
     let outputFileName = sliceFileName(file);
 
-    fs.writeFile(`output_files/${outputFileName}`, output, (err) => {
+    fs.writeFile(`${outputFileName}`, output, (err) => {
         if(err) throw err;
     });
 }
@@ -25,18 +28,17 @@ const sliceFileName = file => {
     } else {
         tempFileName = file.slice(0, file.length - 4);
     }
-    let fileArray = tempFileName.split('/');
-    let newFileName = fileArray[fileArray.length - 1];
+    let newFileName = tempFileName;
     return newFileName;
 }
 
 
 
-const selectCipher = (cipherFile) => {
-    if(cipherFile === 'ln') {
-        return new LetterNumber('src/character_set.txt');
+const selectCipher = (cipherFile, characterSet) => {
+    if(cipherFile === 'ln' || cipherFile === 'letterNumber') {
+        return new LetterNumberCipher(__dirname + `/../characterSets/${characterSet}`);
     } else {
-        return new LetterLetter('src/character_set2.txt');
+        return new LetterLetterCipher(__dirname + `/../characterSets/${characterSet}`);
     }
 }
 
@@ -44,7 +46,7 @@ const selectCipher = (cipherFile) => {
 
 const executeMethod = (method, cipherType, fileString, key) => {
     let output = ''
-    if(method === 'enc') {
+    if(method === 'enc' || method === 'encrypt') {
         output = cipherType.encrypt(fileString, parseInt(key));
     } else {
         output = cipherType.decrypt(fileString, parseInt(key));
